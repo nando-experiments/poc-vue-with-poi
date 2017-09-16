@@ -1,12 +1,24 @@
 <template>
   <div id="app">
-    <h1>Hello</h1>
+    <hello></hello>
   </div>
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+  import Hello from './components/Hello.vue'
+
   export default {
-    name: 'app'
+    name: 'app',
+    components: {
+      Hello
+    },
+    mounted () {
+      this.changeLoading(false)
+    },
+    methods: {
+      ...mapActions(['changeLoading'])
+    }
   }
 </script>
 
